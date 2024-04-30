@@ -28,3 +28,24 @@ Criando e modificando a senha de um super usuário Django
 python manage.py createsuperuser
 python manage.py changepassword USERNAME
 
+
+
+
+Configurar na base de dados pelo Django Shell
+
+python manage.py shell
+>>> from contact.models import Contact
+>>> Contact
+<class 'contact.models.Contact'>
+>>> c = Contact(first_name = 'Gustavo') 
+>>> c
+<Contact: Gustavo >
+>>> c.save()
+c.last_name = 'Moreira'
+c.delete
+c  = Contact.objects.get(id=1) 
+> c  = Contact.objects.get(pk=1)
+>>> c = Contact.objects.all() 
+>>> for contato in c: contato.first_name
+c = Contact.objects.filter(pk=1)
+>>> c = Contact.objects.all().order_by('-id') 
