@@ -58,3 +58,11 @@ contacts = Contact.objects.all().order_by('-id')
 # Seleciona contatos usando filtros
 # Retorna QuerySet[]
 contacts = Contact.objects.filter(**filters).order_by('-id')
+
+
+>>> from django.contrib.auth.models import User
+>>> user = User.objects.create_user(username='usuario', password= '123') 
+user.is_staff = True
+
+pip install faker
+python utils/create_contacts.py
