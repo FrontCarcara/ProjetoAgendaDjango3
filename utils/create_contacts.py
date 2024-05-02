@@ -1,3 +1,6 @@
+# flake8:noqa
+# type: ignore
+
 import os
 import sys
 from datetime import datetime
