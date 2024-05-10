@@ -1,6 +1,6 @@
 from typing import Any
 
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
 from contact.forms import ContactForms
 
@@ -8,11 +8,15 @@ from contact.forms import ContactForms
 # Create your views here.
 def create(request):
     if request.method == 'POST':
-
+        form = ContactForms(request.POST)
     
         context = {
-            'form': ContactForms(request.POST),
+            'form': form
             }
+
+        if form.is_valid():
+           form.save()
+           return redirect('contact:create')
 
         return render(
             request,
